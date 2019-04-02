@@ -65,7 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\ResultData.cs" />
+    <Compile Include="Data\ResponseData.cs" />
     <Compile Include="Data\Photo.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>

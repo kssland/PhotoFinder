@@ -32,11 +32,13 @@
             this.photoListView = new System.Windows.Forms.ListView();
             this.txtKeyword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSearchPhoto
             // 
-            this.btnSearchPhoto.Location = new System.Drawing.Point(565, 9);
+            this.btnSearchPhoto.Location = new System.Drawing.Point(456, 14);
             this.btnSearchPhoto.Name = "btnSearchPhoto";
             this.btnSearchPhoto.Size = new System.Drawing.Size(98, 39);
             this.btnSearchPhoto.TabIndex = 0;
@@ -46,7 +48,7 @@
             // 
             // photoListView
             // 
-            this.photoListView.Location = new System.Drawing.Point(30, 54);
+            this.photoListView.Location = new System.Drawing.Point(30, 66);
             this.photoListView.Name = "photoListView";
             this.photoListView.Size = new System.Drawing.Size(773, 488);
             this.photoListView.TabIndex = 1;
@@ -54,7 +56,7 @@
             // 
             // txtKeyword
             // 
-            this.txtKeyword.Location = new System.Drawing.Point(358, 17);
+            this.txtKeyword.Location = new System.Drawing.Point(249, 22);
             this.txtKeyword.Name = "txtKeyword";
             this.txtKeyword.Size = new System.Drawing.Size(189, 21);
             this.txtKeyword.TabIndex = 2;
@@ -62,27 +64,39 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(117, 20);
+            this.label1.Location = new System.Drawing.Point(8, 25);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(233, 12);
             this.label1.TabIndex = 3;
             this.label1.Text = "찾고 싶은 사진의 키워드를 입력해주세요 :";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.txtKeyword);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.btnSearchPhoto);
+            this.groupBox1.Location = new System.Drawing.Point(30, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(576, 57);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "검색";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(828, 568);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtKeyword);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.photoListView);
-            this.Controls.Add(this.btnSearchPhoto);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PhotoFinder";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -92,6 +106,7 @@
         private System.Windows.Forms.ListView photoListView;
         private System.Windows.Forms.TextBox txtKeyword;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 

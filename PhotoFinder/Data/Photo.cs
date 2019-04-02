@@ -12,7 +12,7 @@
         public string UpdatedTime { get; set; } //수정 날짜
         public int Likes { get; set; } //좋아요 수
         public string ToolTipText { get; set; } //툴팁 텍스트
-        public string ThumbnailDownloadUrl { get; set; } //썸네일 이미지 URL 경로
+        public string DownloadUrl { get; set; } //썸네일 이미지 URL 경로
     }
 }
 
