@@ -173,7 +173,6 @@ namespace PhotoFinder
         {
             if (e.Button == System.Windows.Forms.MouseButtons.Right)
             {
-                object tmp = photoListView.SelectedItems;
                 if (photoListView.SelectedItems.Count == 1)
                 {
                     SelectedListViewItemCollection selectedItems = photoListView.SelectedItems;

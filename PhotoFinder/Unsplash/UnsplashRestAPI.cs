@@ -6,7 +6,7 @@ namespace PhotoFinder.Unsplash
 {
     class UnsplashRestAPI
     {
-        private static string UNSLPASH_BASE_URI = "https://api.unsplash.com/";
+        private static readonly string UNSLPASH_BASE_URI = "https://api.unsplash.com/";
         private HttpRequest httpRequest;
 
         public UnsplashRestAPI()
