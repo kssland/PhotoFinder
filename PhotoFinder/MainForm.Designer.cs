@@ -30,7 +30,7 @@
         {
             this.btnSearchPhoto = new System.Windows.Forms.Button();
             this.photoListView = new System.Windows.Forms.ListView();
-            this.txtKeyword = new System.Windows.Forms.TextBox();
+            this.tbKeyword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
@@ -54,12 +54,13 @@
             this.photoListView.TabIndex = 1;
             this.photoListView.UseCompatibleStateImageBehavior = false;
             // 
-            // txtKeyword
+            // tbKeyword
             // 
-            this.txtKeyword.Location = new System.Drawing.Point(249, 22);
-            this.txtKeyword.Name = "txtKeyword";
-            this.txtKeyword.Size = new System.Drawing.Size(189, 21);
-            this.txtKeyword.TabIndex = 2;
+            this.tbKeyword.Location = new System.Drawing.Point(249, 22);
+            this.tbKeyword.Name = "tbKeyword";
+            this.tbKeyword.Size = new System.Drawing.Size(189, 21);
+            this.tbKeyword.TabIndex = 2;
+            this.tbKeyword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbKeyword_KeyDown);
             // 
             // label1
             // 
@@ -72,7 +73,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtKeyword);
+            this.groupBox1.Controls.Add(this.tbKeyword);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnSearchPhoto);
             this.groupBox1.Location = new System.Drawing.Point(30, 3);
@@ -104,7 +105,7 @@
 
         private System.Windows.Forms.Button btnSearchPhoto;
         private System.Windows.Forms.ListView photoListView;
-        private System.Windows.Forms.TextBox txtKeyword;
+        private System.Windows.Forms.TextBox tbKeyword;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
     }

@@ -25,20 +25,39 @@ namespace PhotoFinder
         // 검색 버튼 클릭
         private void btnSearchPhoto_Click(object sender, EventArgs e)
         {
-            string inputKeyword = txtKeyword.Text.Trim();
+            if (!ValidateKeywordInput())
+                return;
+            SearchPhotosByKeyword();
+        }
+
+        // 키워드 입력 박스에서 엔터 입력 시
+        private void tbKeyword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (!ValidateKeywordInput())
+                    return;
+                SearchPhotosByKeyword();
+            }
+        }
+
+        // 키워드 입력 체크
+        private bool ValidateKeywordInput()
+        {
+            string inputKeyword = tbKeyword.Text.Trim();
             if (inputKeyword.Length <= 0)
             {
-                MessageBox.Show("Please enter a keyword!");
-                return;
+                MessageBox.Show("검색어를 입력해 주세요!");
+                return false;
             }
-            btnSearchPhoto.Enabled = false;
-            SearchPhotosByKeyword(inputKeyword);
+            return true;
         }
 
         // 사진 검색 시작
-        private async void SearchPhotosByKeyword(string keyword)
+        private async void SearchPhotosByKeyword()
         {
-            await SearchPhotoTask(keyword);
+            btnSearchPhoto.Enabled = false;
+            await SearchPhotoTask(tbKeyword.Text.Trim());
         }
 
         // 서버로부터 받은 사진 리스트를 ListView 컨트롤에 삽입하고 Display 한다
