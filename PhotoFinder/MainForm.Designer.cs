@@ -38,7 +38,7 @@
             // 
             // btnSearchPhoto
             // 
-            this.btnSearchPhoto.Location = new System.Drawing.Point(456, 14);
+            this.btnSearchPhoto.Location = new System.Drawing.Point(456, 13);
             this.btnSearchPhoto.Name = "btnSearchPhoto";
             this.btnSearchPhoto.Size = new System.Drawing.Size(98, 39);
             this.btnSearchPhoto.TabIndex = 0;
@@ -53,6 +53,7 @@
             this.photoListView.Size = new System.Drawing.Size(773, 488);
             this.photoListView.TabIndex = 1;
             this.photoListView.UseCompatibleStateImageBehavior = false;
+            this.photoListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.photoListView_MouseClick);
             // 
             // tbKeyword
             // 
@@ -65,7 +66,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 25);
+            this.label1.Location = new System.Drawing.Point(9, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(233, 12);
             this.label1.TabIndex = 3;
@@ -78,7 +79,7 @@
             this.groupBox1.Controls.Add(this.btnSearchPhoto);
             this.groupBox1.Location = new System.Drawing.Point(30, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(576, 57);
+            this.groupBox1.Size = new System.Drawing.Size(567, 57);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "검색";

@@ -7,6 +7,7 @@ using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.ListView;
 
 namespace PhotoFinder
 {
@@ -75,8 +76,8 @@ namespace PhotoFinder
                 List<Photo> photoItemList = MakePhotoItemList((string)responseData.Obj);
                 foreach (Photo photo in photoItemList)
                 {
-                    // 썸네일 이미지 다운로드(small image)
-                    ResponseData thumbnailData = await unsplash.DownloadStream(photo.DownloadUrl);
+                    // 썸네일 이미지 다운로드
+                    ResponseData thumbnailData = await unsplash.DownloadStream(photo.ThumbnailUrl);
                     // 썸네일 이미지 리스트뷰에 삽입
                     if (thumbnailData.Result == RESULT.SUCCEED)
                         InsertPhotoToListView((Stream)thumbnailData.Obj, photo);
@@ -110,7 +111,8 @@ namespace PhotoFinder
                 photo.UserName = item.user.username;
                 photo.CreatedTime = item.created_at;
                 photo.UpdatedTime = item.updated_at;
-                photo.DownloadUrl = item.urls.thumb;
+                photo.ThumbnailUrl = item.urls.thumb;
+                photo.FullImageUrl = item.urls.full;
                 photo.Width = item.width;
                 photo.Height = item.height;
                 photo.Likes = item.likes;
@@ -135,6 +137,7 @@ namespace PhotoFinder
             lvItem.Text += "\n좋아요: " + photo.Likes;
             lvItem.ToolTipText = photo.ToolTipText;
             lvItem.ImageIndex = photoListView.Items.Count;
+            lvItem.Tag = photo.FullImageUrl;
             this.photoListView.Items.Add(lvItem);
         }
 
@@ -163,6 +166,46 @@ namespace PhotoFinder
         {
             string countText = "사진 검색\n" + "(" + photoListView.Items.Count.ToString() + "/" + totalCount + ")";
             this.btnSearchPhoto.Text = countText;
+        }
+
+        // 원본 이미지 다운로드 기능
+        private void photoListView_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            {
+                object tmp = photoListView.SelectedItems;
+                if (photoListView.SelectedItems.Count == 1)
+                {
+                    SelectedListViewItemCollection selectedItems = photoListView.SelectedItems;
+                    ListViewItem lvItem = selectedItems[0];
+                    ContextMenu contextMenu = new ContextMenu();
+                    MenuItem menuItem = new MenuItem();
+                    menuItem.Text = "원본 다운로드";
+                    menuItem.Click += async (senders, es) =>
+                    {
+                        SaveFileDialog savePanel = new SaveFileDialog();
+                        savePanel.InitialDirectory = @"c:\";
+                        savePanel.Filter = "JPG File (*.jpg)|*.jpg";
+                        if (savePanel.ShowDialog() == DialogResult.OK)
+                        {
+                            using (var saveFileStream = File.Create(savePanel.FileName))
+                            {
+                                ResponseData fullImageData = await unsplash.DownloadStream((string)lvItem.Tag);
+                                if (fullImageData.Result == RESULT.SUCCEED)
+                                {
+                                    Stream fullImageStream = (Stream)fullImageData.Obj;
+                                    fullImageStream.CopyTo(saveFileStream);
+                                }
+                                else
+                                    MessageBox.Show(fullImageData.Obj.ToString());
+                            }                            
+                        }                        
+                    };
+
+                    contextMenu.MenuItems.Add(menuItem);
+                    contextMenu.Show(photoListView, e.Location);
+                }
+            }
         }
     }
 }
