@@ -16,7 +16,7 @@ namespace PhotoFinder.Network
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(scheme, accessKey);
         }
 
-        // Get 메서드, 리턴은 String
+        // HTTP GET 메서드 - ReadAsString
         public async Task<ResponseData> GetAsync(string url)
         {            
             try
@@ -32,7 +32,7 @@ namespace PhotoFinder.Network
             }
         }
 
-        // URL 이미지 다운로드 메서드
+        // HTTP GET 메서드 - ReadAsStream
         public async Task<ResponseData> GetStreamAsync(string url)
         {
             try
