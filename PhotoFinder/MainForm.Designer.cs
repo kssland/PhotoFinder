@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnSearchPhoto = new System.Windows.Forms.Button();
             this.photoListView = new System.Windows.Forms.ListView();
             this.tbKeyword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,6 +86,11 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "검색";
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "donwloadNotifyIcon";
+            this.notifyIcon1.Visible = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -109,6 +116,7 @@
         private System.Windows.Forms.TextBox tbKeyword;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }
 

@@ -194,6 +194,8 @@ namespace PhotoFinder
                                 {
                                     Stream fullImageStream = (Stream)fullImageData.Obj;
                                     fullImageStream.CopyTo(saveFileStream);
+                                    notifyIcon1.Icon = SystemIcons.Information;
+                                    notifyIcon1.ShowBalloonTip(10000, "다운로드 완료", saveFileStream.Name, ToolTipIcon.Info);
                                 }
                                 else
                                     MessageBox.Show(fullImageData.Obj.ToString());
