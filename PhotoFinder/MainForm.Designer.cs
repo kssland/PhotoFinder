@@ -34,7 +34,7 @@
             this.tbKeyword = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.downloadNotifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,10 +86,9 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "검색";
             // 
-            // notifyIcon1
+            // downloadNotifyIcon
             // 
-            this.notifyIcon1.Text = "donwloadNotifyIcon";
-            this.notifyIcon1.Visible = true;
+            this.downloadNotifyIcon.Visible = true;
             // 
             // MainForm
             // 
@@ -116,7 +115,7 @@
         private System.Windows.Forms.TextBox tbKeyword;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.NotifyIcon downloadNotifyIcon;
     }
 }
 
